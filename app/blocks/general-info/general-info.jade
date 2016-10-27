@@ -1,0 +1,6 @@
+mixin general-info(data)
+	+b.general-info&attributes(attributes)
+		each item in data
+			+e('li').item
+				+e('label').label #{item.label}
+					+e('input').input(type='text' value='#{item.value}')

@@ -1,0 +1,15 @@
+mixin skills(data)
+	+b.skills&attributes(attributes)
+		+e('p').text
+			| Отметьте чекбоксами пункты, которые соответствуют вашим скиллам.
+			| Кстати, отсутствие опыта не означает, что у вас меньше шансов стать одним из наших товарищей.
+			| Это означает, что вы будете получать те задачи, с которыми гарантировано будете справляться.
+		+e('ul').list
+			each item, index in data
+				+e('li').item
+					+e('input').input(
+					type='checkbox'
+					id='checked-#{index}'
+					checked=(item[1] ? 'checked' : undefined)
+					)
+					+e('label').label(for='checked-#{index}') !{item[0]}
